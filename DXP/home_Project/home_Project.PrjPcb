@@ -106,57 +106,6 @@ GenerateClassCluster=0
 DocumentUniqueId=JFQEHPFH
 
 [Document5]
-DocumentPath=..\资料\LC-SOT-23(SOT-23-3).PcbLib
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=FKVPPWWW
-
-[Document6]
-DocumentPath=..\资料\LC-TSSOP-20.PcbLib
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=MMHEBAGH
-
-[Document7]
-DocumentPath=..\..\demo\EliteSTM32封装库.IntLib
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=
-
-[Document8]
 DocumentPath=D:\Users\Public\Documents\Altium\AD17\Library\Altium Designer 6原理图元件库集锦\CMOS&TTL74.SCHLIB
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -173,7 +122,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document9]
+[Document6]
 DocumentPath=D:\Users\Public\Documents\Altium\AD17\Library\Altium Designer 6原理图元件库集锦\IC.SCHLIB
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -190,7 +139,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document10]
+[Document7]
 DocumentPath=D:\Users\Public\Documents\Altium\AD17\Library\Altium Designer 6原理图元件库集锦\jointbar.SCHLIB
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -207,7 +156,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document11]
+[Document8]
 DocumentPath=D:\Users\Public\Documents\Altium\AD17\Library\Altium Designer 6原理图元件库集锦\photounit.SCHLIB
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -224,7 +173,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document12]
+[Document9]
 DocumentPath=D:\Users\Public\Documents\Altium\AD17\Library\Altium Designer 6原理图元件库集锦\RCDQLY.SCHLIB
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -241,7 +190,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document13]
+[Document10]
 DocumentPath=D:\Users\Public\Documents\Altium\AD17\Library\Altium Designer 6原理图元件库集锦\rest.SCHLIB
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -258,7 +207,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document14]
+[Document11]
 DocumentPath=D:\Users\Public\Documents\Altium\AD17\Library\Altium Designer 6原理图元件库集锦\杂元件库.SCHLIB
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -275,8 +224,59 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
+[Document12]
+DocumentPath=touch.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=NHTFXPDY
+
+[Document13]
+DocumentPath=package\LC-LQFP-64_10x10x05P.PcbLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
+[Document14]
+DocumentPath=package\LC-SOIC-8_150mil.PcbLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
 [Document15]
-DocumentPath=..\资料\LC-SOIC-8_150mil.PcbLib
+DocumentPath=package\LC-SOT-23(SOT-23-3).PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -293,7 +293,7 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [Document16]
-DocumentPath=touch.SchDoc
+DocumentPath=package\LC-TSSOP-20.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -307,7 +307,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=NHTFXPDY
+DocumentUniqueId=
 
 [Configuration1]
 Name=Sources
