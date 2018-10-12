@@ -137,7 +137,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=GSYJBBNP
 
 [Document7]
 DocumentPath=D:\Users\Public\Documents\Altium\AD17\Library\Altium Designer 6原理图元件库集锦\jointbar.SCHLIB
@@ -294,6 +294,23 @@ DocumentUniqueId=
 
 [Document16]
 DocumentPath=package\LC-TSSOP-20.PcbLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
+[Document17]
+DocumentPath=..\..\..\..\pcb\demo\EliteSTM32封装库.IntLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
