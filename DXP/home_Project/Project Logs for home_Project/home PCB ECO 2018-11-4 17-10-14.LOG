@@ -1,0 +1,10 @@
+Removed Pin From Net: NetName=AC3_OUT Pin=P1-1
+Removed Pin From Net: NetName=AC2_OUT Pin=P1-2
+Removed Pin From Net: NetName=AC1_OUT Pin=P1-3
+Removed Pin From Net: NetName=AC_IN Pin=P1-4
+Change Component Comment : Designator=P1 Old Comment=Header 4 New Comment=tongzhu
+Change component parameters. Clean all parameters for all variants
+Added Pin To Net: NetName=AC_IN Pin=P1-1
+Added Pin To Net: NetName=AC1_OUT Pin=P2-1
+Added Pin To Net: NetName=AC2_OUT Pin=P3-1
+Added Pin To Net: NetName=AC3_OUT Pin=P4-1

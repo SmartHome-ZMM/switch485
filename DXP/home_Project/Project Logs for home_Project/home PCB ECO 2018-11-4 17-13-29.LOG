@@ -1,0 +1,16 @@
+Removed Pin From Net: NetName=AC1_OUT Pin=P2-1
+Removed Pin From Net: NetName=AC2_OUT Pin=P3-1
+Removed Pin From Net: NetName=AC3_OUT Pin=P4-1
+Change Component Footprint: Designator=P1 Old Footprint=HDR1X4 New Footprint=tongzhu
+Added Component: Designator=P2(tongzhu)
+Add component. Clean all parameters for all variants
+Added Component: Designator=P3(tongzhu)
+Add component. Clean all parameters for all variants
+Added Component: Designator=P4(tongzhu)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=AC1_OUT Pin=P2-1
+Added Pin To Net: NetName=IN01 Pin=P2-1
+Added Pin To Net: NetName=AC2_OUT Pin=P3-1
+Added Pin To Net: NetName=GND Pin=P3-1
+Added Pin To Net: NetName=AC3_OUT Pin=P4-1
+Added Pin To Net: NetName=SWDIO Pin=P4-1
