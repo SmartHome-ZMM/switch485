@@ -1,0 +1,6 @@
+Change Component Footprint: Designator=J2 Old Footprint=KF301 New Footprint=HDR1X2
+Added Component: Designator=C14(0603p)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "value"; Value = "0.1uF"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=C14-1
+Added Pin To Net: NetName=VCC Pin=C14-2
