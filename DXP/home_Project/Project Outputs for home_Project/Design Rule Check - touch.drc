@@ -1,12 +1,9 @@
 Protel Design System Design Rule Check
-PCB File : E:\githubLib\switch485\switch485\DXP\home_Project\home.PcbDoc
+PCB File : E:\githubLib\switch485\switch485\DXP\home_Project\touch.PcbDoc
 Date     : 2018/11/6
-Time     : 23:30:09
+Time     : 23:51:43
 
-Processing Rule : Clearance Constraint (Gap=10mil) (InNet('AVCC_GND')),(All)
-Rule Violations :0
-
-Processing Rule : Clearance Constraint (Gap=1mil) (All),(All)
+Processing Rule : Clearance Constraint (Gap=10mil) (All),(All)
 Rule Violations :0
 
 Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
@@ -18,19 +15,19 @@ Rule Violations :0
 Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
 Rule Violations :0
 
-Processing Rule : Width Constraint (Min=9mil) (Max=100mil) (Preferred=10mil) (All)
+Processing Rule : Width Constraint (Min=10mil) (Max=10mil) (Preferred=10mil) (All)
 Rule Violations :0
 
 Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)
 Rule Violations :0
 
-Processing Rule : Hole Size Constraint (Min=1mil) (Max=350mil) (All)
+Processing Rule : Hole Size Constraint (Min=1mil) (Max=120mil) (All)
 Rule Violations :0
 
 Processing Rule : Hole To Hole Clearance (Gap=10mil) (All),(All)
 Rule Violations :0
 
-Processing Rule : Minimum Solder Mask Sliver (Gap=3mil) (All),(All)
+Processing Rule : Minimum Solder Mask Sliver (Gap=2mil) (All),(All)
 Rule Violations :0
 
 Processing Rule : Silk To Solder Mask (Clearance=0mil) (IsPad),(All)

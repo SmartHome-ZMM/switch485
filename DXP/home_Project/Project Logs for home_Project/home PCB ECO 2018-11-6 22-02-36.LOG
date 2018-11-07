@@ -1,0 +1,5 @@
+Added Pin To Net: NetName=GND Pin=C15-1
+Added Pin To Net: NetName=GND Pin=L2-2
+Added Pin To Net: NetName=GND Pin=P5-2
+Added Pin To Net: NetName=GND Pin=U4-15
+Change Net Name : Old Net Name=GND New Net Name=AVCC_GND
