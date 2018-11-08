@@ -1,0 +1,18 @@
+Bill of Material for 
+On 2018/11/7 at 22:40:40
+
+ Comment             Pattern     Quantity  Components
+------------------------------------------------------------------------------
+ 0603                0603P            3    R39, R40, R43                Resistor             
+ Cap                 0603P            6    C18, C19, C20, C21, C22, C23 Capacitor            
+ Header 2            HDR1X2           1    P6                           Header, 2-Pin        
+ Header 4            HDR1X4           1    P5                           Header, 4-Pin        
+ LED1                0603P            3    D4, D5, D6                   Typical RED GaAs LED 
+ NPN                 TEMT6000X01      1    Q4                           NPN Bipolar Transistor 
+ PNP                 SOT-23R          1    Q5                           8550                 
+ Res1                0603P           13    R28, R29, R30, R31, R32, R33 Resistor             
+                                           R34, R35, R36, R37, R38, R41
+                                           R42
+ TouchPad            TOUCHKEY         4    TouchPad1, TouchPad2                              
+                                           TouchPad3, TouchPad4
+ XW02C               SOP-8L           2    U6, U7                                            
