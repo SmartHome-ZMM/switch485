@@ -1,0 +1,23 @@
+Change Component Footprint: Designator=TouchPad1 Old Footprint=TOUCHKEY New Footprint=TOUCHKEY - latch
+Change Component Comment : Designator=R43 Old Comment=0603 New Comment=0
+Change Component Comment : Designator=R39 Old Comment=0603 New Comment=1K
+Change Component Comment : Designator=R40 Old Comment=0603 New Comment=1M
+Change Component Comment : Designator=C20 Old Comment=Cap New Comment=4.7nf
+Change Component Comment : Designator=C21 Old Comment=Cap New Comment=4.7nf
+Change Component Comment : Designator=C22 Old Comment=Cap New Comment=50pf
+Change Component Comment : Designator=C23 Old Comment=Cap New Comment=50pf
+Change Component Comment : Designator=C18 Old Comment=Cap New Comment=100nF
+Change Component Comment : Designator=C19 Old Comment=Cap New Comment=100nF
+Change Component Comment : Designator=R34 Old Comment=Res1 New Comment=1K
+Change Component Comment : Designator=R35 Old Comment=Res1 New Comment=1K
+Change Component Comment : Designator=R36 Old Comment=Res1 New Comment=1K
+Change Component Comment : Designator=R37 Old Comment=Res1 New Comment=1K
+Change Component Comment : Designator=R38 Old Comment=Res1 New Comment=1K
+Change Component Comment : Designator=R41 Old Comment=Res1 New Comment=1K
+Change Component Comment : Designator=R42 Old Comment=Res1 New Comment=1K
+Change Component Comment : Designator=R30 Old Comment=Res1 New Comment=10K
+Change Component Comment : Designator=R31 Old Comment=Res1 New Comment=10K
+Change Component Comment : Designator=R32 Old Comment=Res1 New Comment=10K
+Change Component Comment : Designator=R33 Old Comment=Res1 New Comment=10K
+Change Component Comment : Designator=R28 Old Comment=Res1 New Comment=20¦¸
+Change Component Comment : Designator=R29 Old Comment=Res1 New Comment=20¦¸

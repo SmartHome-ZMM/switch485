@@ -1,0 +1,46 @@
+Bill of Material for 
+On 2018/11/17 at 22:22:47
+
+ Comment             Pattern     Quantity  Components
+------------------------------------------------------------------------------
+ 0.1uf               0603p            5    C5, C10, C13, C14, C15                            
+ 0                   0603p           11    R4, R5, R6, R7, R10, R11, R12 Resistor             
+                                           R15, R16, R19, R43
+ 0603                0603p            2    R39, R40                     Resistor             
+ 100K                0603p            6    R1, R2, R3, R8, R9, R13      Resistor             
+ 100nF               0603p            2    C18, C19                     Capacitor            
+ 104                 0603p            4    C11, C12, C16, C17                                
+ 10K                 0603p            1    R14                          Resistor             
+ 10R                 0603p            2    R18, R20                                          
+ 1uf                 0603p            7    C1, C2, C3, C4, C7, C8, C9   Capacitor            
+ 1vf                 0603p            1    C6                           Capacitor            
+ 20K                 0603p            2    R17, R21                                          
+ 2K                  0603p            3    R22, R23, R24                Resistor             
+ 4.7K                0603p            3    R25, R26, R27                Resistor             
+ 8M                  LC-HC-49S        1    Y1                           Crystal              
+ ADM483EAR           LC-SOIC-8_150mil    1    U5                                                
+ Cap                 0603p            4    C20, C21, C22, C23           Capacitor            
+ CON2                HDR1X2           1    J2                           Connector            
+ CON2                KF301            1    J1                           Connector            
+ D1N4007             LC-SMA(DO-214AC)_S1    3    D1, D2, D3                   1 Amp General Purpose Rectifier 
+ ESP-07S Module      ESP-07S Module    1    M1                           ESP-07S Module       
+ Header 2            HDR1X2           2    P6, P6                       Header, 2-Pin        
+ Header 2X2          HDR2X2           1    P5                           Header, 2-Pin, Dual row 
+ Header 4            HDR1X4           2    P5, P7                       Header, 4-Pin        
+ Inductor            0603p            2    L1, L2                       Inductor             
+ LED1                0603p            3    D4, D5, D6                   Typical RED GaAs LED 
+ NPN                 SOT-23R          3    Q1, Q2, Q3                   8050                 
+ NPN                 TEMT6000X01      1    Q4                           NPN Bipolar Transistor 
+ PNP                 SOT-23R          1    Q5                           8550                 
+ Relay               JQC-3FF          3    K1, K2, K3                   继电器05-1ZS(551)       
+ Res1                0603p           13    R28, R29, R30, R31, R32, R33 Resistor             
+                                           R34, R35, R36, R37, R38, R41
+                                           R42
+ SMBJ6.5CA           LC-SMB(DO-214AA)_S1    1    T1                           快速瞬变二极管              
+ SOT23               LC-SOT-23(SOT-23-3)    2    U2, U3                       XC6206P332MR         
+ SP706REN            LC-SOIC-8_150mil    1    U1                           看门狗                  
+ STM32L011F4P6       LC-TSSOP-20      1    U4                                                
+ tongzhu             tongzhu          4    P1, P2, P3, P4               铜柱                   
+ TouchPad            TOUCHKEY         4    TouchPad1, TouchPad2                              
+                                           TouchPad3, TouchPad4
+ XW02C               SOP-8L           2    U6, U7                                            
