@@ -3,10 +3,10 @@
   * @file    stm32l0xx_hal_pcd_ex.c
   * @author  MCD Application Team
   * @brief   Extended PCD HAL module driver.
-  *          This file provides firmware functions to manage the following 
+  *          This file provides firmware functions to manage the following
   *          functionalities of the USB Peripheral Controller:
   *           + Configururation of the PMA for EP
-  *         
+  *
   ******************************************************************************
   * @attention
   *
@@ -35,7 +35,7 @@
   * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   *
   ******************************************************************************
-  */ 
+  */
 
 #if !defined(STM32L011xx) && !defined(STM32L021xx) && !defined (STM32L031xx) && !defined (STM32L041xx) && !defined (STM32L051xx) && !defined (STM32L061xx) && !defined (STM32L071xx) && !defined (STM32L081xx)
 /* Includes ------------------------------------------------------------------*/
@@ -65,9 +65,9 @@
   */
 
 /** @addtogroup PCDEx__Exported_Functions_Group1
- *  @brief    Initialization and Configuration functions 
+ *  @brief    Initialization and Configuration functions
  *
-@verbatim    
+@verbatim
  ===============================================================================
                  ##### Peripheral extended features functions #####
  ===============================================================================
@@ -93,42 +93,42 @@
   */
 
 
-HAL_StatusTypeDef  HAL_PCDEx_PMAConfig(PCD_HandleTypeDef *hpcd, 
-                        uint16_t ep_addr,
-                        uint16_t ep_kind,
-                        uint32_t pmaadress)
+HAL_StatusTypeDef  HAL_PCDEx_PMAConfig(PCD_HandleTypeDef *hpcd,
+									   uint16_t ep_addr,
+									   uint16_t ep_kind,
+									   uint32_t pmaadress)
 
 {
-  PCD_EPTypeDef *ep;
-  
-  /* initialize ep structure*/
-  if ((0x80U & ep_addr) == 0x80U)
-  {
-    ep = &hpcd->IN_ep[ep_addr & 0x7FU];
-  }
-  else
-  {
-    ep = &hpcd->OUT_ep[ep_addr];
-  }
-  
-  /* Here we check if the endpoint is single or double Buffer*/
-  if (ep_kind == PCD_SNG_BUF)
-  {
-    /*Single Buffer*/
-    ep->doublebuffer = 0U;
-    /*Configure te PMA*/
-    ep->pmaadress = (uint16_t)pmaadress;
-  }
-  else /*USB_DBL_BUF*/
-  {
-    /*Double Buffer Endpoint*/
-    ep->doublebuffer = 1U;
-    /*Configure the PMA*/
-    ep->pmaaddr0 =  pmaadress & 0xFFFFU;
-    ep->pmaaddr1 =  (pmaadress & 0xFFFF0000U) >> 16U;
-  }
-  
-  return HAL_OK; 
+	PCD_EPTypeDef *ep;
+
+	/* initialize ep structure*/
+	if ((0x80U & ep_addr) == 0x80U)
+	{
+		ep = &hpcd->IN_ep[ep_addr & 0x7FU];
+	}
+	else
+	{
+		ep = &hpcd->OUT_ep[ep_addr];
+	}
+
+	/* Here we check if the endpoint is single or double Buffer*/
+	if (ep_kind == PCD_SNG_BUF)
+	{
+		/*Single Buffer*/
+		ep->doublebuffer = 0U;
+		/*Configure te PMA*/
+		ep->pmaadress = (uint16_t)pmaadress;
+	}
+	else /*USB_DBL_BUF*/
+	{
+		/*Double Buffer Endpoint*/
+		ep->doublebuffer = 1U;
+		/*Configure the PMA*/
+		ep->pmaaddr0 =  pmaadress & 0xFFFFU;
+		ep->pmaaddr1 =  (pmaadress & 0xFFFF0000U) >> 16U;
+	}
+
+	return HAL_OK;
 }
 
 /**
@@ -138,14 +138,14 @@ HAL_StatusTypeDef  HAL_PCDEx_PMAConfig(PCD_HandleTypeDef *hpcd,
   */
 HAL_StatusTypeDef HAL_PCDEx_ActivateBCD(PCD_HandleTypeDef *hpcd)
 {
-  USB_TypeDef *USBx = hpcd->Instance;
-  hpcd->battery_charging_active = ENABLE;
-  
-  USBx->BCDR |= (USB_BCDR_BCDEN);
-  /* Enable DCD : Data Contact Detect */
-  USBx->BCDR |= (USB_BCDR_DCDEN);
-  
-  return HAL_OK;  
+	USB_TypeDef *USBx = hpcd->Instance;
+	hpcd->battery_charging_active = ENABLE;
+
+	USBx->BCDR |= (USB_BCDR_BCDEN);
+	/* Enable DCD : Data Contact Detect */
+	USBx->BCDR |= (USB_BCDR_DCDEN);
+
+	return HAL_OK;
 }
 
 /**
@@ -155,11 +155,11 @@ HAL_StatusTypeDef HAL_PCDEx_ActivateBCD(PCD_HandleTypeDef *hpcd)
   */
 HAL_StatusTypeDef HAL_PCDEx_DeActivateBCD(PCD_HandleTypeDef *hpcd)
 {
-  USB_TypeDef *USBx = hpcd->Instance;
-  hpcd->battery_charging_active = DISABLE;
-  
-  USBx->BCDR &= ~(USB_BCDR_BCDEN);
-  return HAL_OK;  
+	USB_TypeDef *USBx = hpcd->Instance;
+	hpcd->battery_charging_active = DISABLE;
+
+	USBx->BCDR &= ~(USB_BCDR_BCDEN);
+	return HAL_OK;
 }
 
 /**
@@ -169,62 +169,64 @@ HAL_StatusTypeDef HAL_PCDEx_DeActivateBCD(PCD_HandleTypeDef *hpcd)
   */
 void HAL_PCDEx_BCD_VBUSDetect(PCD_HandleTypeDef *hpcd)
 {
-  USB_TypeDef *USBx = hpcd->Instance;
-  uint32_t tickstart = HAL_GetTick();
-   
-  /* Wait Detect flag or a timeout is happen*/
-  while ((USBx->BCDR & USB_BCDR_DCDET) == 0)
-  {
-    /* Check for the Timeout */
-    if((HAL_GetTick() - tickstart ) > 1000)
-    {
-      HAL_PCDEx_BCD_Callback(hpcd, PCD_BCD_ERROR);
-      return;
-    }
-  }
+	USB_TypeDef *USBx = hpcd->Instance;
+	uint32_t tickstart = HAL_GetTick();
 
-  HAL_Delay(300);
-  
-  /* Data Pin Contact ? Check Detect flag */
-  if (USBx->BCDR & USB_BCDR_DCDET)
-  {
-    HAL_PCDEx_BCD_Callback(hpcd, PCD_BCD_CONTACT_DETECTION);
-  }   
-  /* Primary detection: checks if connected to Standard Downstream Port  
-  (without charging capability) */
-  USBx->BCDR &= ~(USB_BCDR_DCDEN);
-  USBx->BCDR |= (USB_BCDR_PDEN);
-  HAL_Delay(300);
-  
-  /* If Charger detect ? */
-  if (USBx->BCDR & USB_BCDR_PDET)
-  {
-    /* Start secondary detection to check connection to Charging Downstream 
-    Port or Dedicated Charging Port */
-    USBx->BCDR &= ~(USB_BCDR_PDEN);
-    USBx->BCDR |= (USB_BCDR_SDEN);
-    HAL_Delay(300);
-    
-    /* If CDP ? */
-    if (USBx->BCDR & USB_BCDR_SDET)
-    {
-      /* Dedicated Downstream Port DCP */
-      HAL_PCDEx_BCD_Callback(hpcd, PCD_BCD_DEDICATED_CHARGING_PORT);
-    }
-    else
-    {
-      /* Charging Downstream Port CDP */
-      HAL_PCDEx_BCD_Callback(hpcd, PCD_BCD_CHARGING_DOWNSTREAM_PORT);
-    }
-  }
-  else
-  {
-    /* Standard Downstream Port */
-    HAL_PCDEx_BCD_Callback(hpcd, PCD_BCD_STD_DOWNSTREAM_PORT);
-  }
-  /* Battery Charging capability discovery finished 
-  Start Enumeration*/
-  HAL_PCDEx_BCD_Callback(hpcd, PCD_BCD_DISCOVERY_COMPLETED);
+	/* Wait Detect flag or a timeout is happen*/
+	while ((USBx->BCDR & USB_BCDR_DCDET) == 0)
+	{
+		/* Check for the Timeout */
+		if((HAL_GetTick() - tickstart ) > 1000)
+		{
+			HAL_PCDEx_BCD_Callback(hpcd, PCD_BCD_ERROR);
+			return;
+		}
+	}
+
+	HAL_Delay(300);
+
+	/* Data Pin Contact ? Check Detect flag */
+	if (USBx->BCDR & USB_BCDR_DCDET)
+	{
+		HAL_PCDEx_BCD_Callback(hpcd, PCD_BCD_CONTACT_DETECTION);
+	}
+
+	/* Primary detection: checks if connected to Standard Downstream Port
+	(without charging capability) */
+	USBx->BCDR &= ~(USB_BCDR_DCDEN);
+	USBx->BCDR |= (USB_BCDR_PDEN);
+	HAL_Delay(300);
+
+	/* If Charger detect ? */
+	if (USBx->BCDR & USB_BCDR_PDET)
+	{
+		/* Start secondary detection to check connection to Charging Downstream
+		Port or Dedicated Charging Port */
+		USBx->BCDR &= ~(USB_BCDR_PDEN);
+		USBx->BCDR |= (USB_BCDR_SDEN);
+		HAL_Delay(300);
+
+		/* If CDP ? */
+		if (USBx->BCDR & USB_BCDR_SDET)
+		{
+			/* Dedicated Downstream Port DCP */
+			HAL_PCDEx_BCD_Callback(hpcd, PCD_BCD_DEDICATED_CHARGING_PORT);
+		}
+		else
+		{
+			/* Charging Downstream Port CDP */
+			HAL_PCDEx_BCD_Callback(hpcd, PCD_BCD_CHARGING_DOWNSTREAM_PORT);
+		}
+	}
+	else
+	{
+		/* Standard Downstream Port */
+		HAL_PCDEx_BCD_Callback(hpcd, PCD_BCD_STD_DOWNSTREAM_PORT);
+	}
+
+	/* Battery Charging capability discovery finished
+	Start Enumeration*/
+	HAL_PCDEx_BCD_Callback(hpcd, PCD_BCD_DISCOVERY_COMPLETED);
 }
 
 /**
@@ -235,15 +237,15 @@ void HAL_PCDEx_BCD_VBUSDetect(PCD_HandleTypeDef *hpcd)
 HAL_StatusTypeDef HAL_PCDEx_ActivateLPM(PCD_HandleTypeDef *hpcd)
 {
 
-  USB_TypeDef *USBx = hpcd->Instance;
-  hpcd->lpm_active = ENABLE;
-  hpcd->LPM_State = LPM_L0;
-  
-  USBx->LPMCSR |= (USB_LPMCSR_LMPEN);
-  USBx->LPMCSR |= (USB_LPMCSR_LPMACK);
-    
- 
-  return HAL_OK;  
+	USB_TypeDef *USBx = hpcd->Instance;
+	hpcd->lpm_active = ENABLE;
+	hpcd->LPM_State = LPM_L0;
+
+	USBx->LPMCSR |= (USB_LPMCSR_LMPEN);
+	USBx->LPMCSR |= (USB_LPMCSR_LPMACK);
+
+
+	return HAL_OK;
 }
 
 /**
@@ -253,14 +255,14 @@ HAL_StatusTypeDef HAL_PCDEx_ActivateLPM(PCD_HandleTypeDef *hpcd)
   */
 HAL_StatusTypeDef HAL_PCDEx_DeActivateLPM(PCD_HandleTypeDef *hpcd)
 {
-  USB_TypeDef *USBx = hpcd->Instance; 
-  
-  hpcd->lpm_active = DISABLE;
-  
-  USBx->LPMCSR &= ~ (USB_LPMCSR_LMPEN);
-  USBx->LPMCSR &= ~ (USB_LPMCSR_LPMACK);
-  
-  return HAL_OK;  
+	USB_TypeDef *USBx = hpcd->Instance;
+
+	hpcd->lpm_active = DISABLE;
+
+	USBx->LPMCSR &= ~ (USB_LPMCSR_LMPEN);
+	USBx->LPMCSR &= ~ (USB_LPMCSR_LPMACK);
+
+	return HAL_OK;
 }
 
 /**
@@ -270,14 +272,14 @@ HAL_StatusTypeDef HAL_PCDEx_DeActivateLPM(PCD_HandleTypeDef *hpcd)
   * @retval HAL status
   */
 __weak void HAL_PCDEx_LPM_Callback(PCD_HandleTypeDef *hpcd, PCD_LPM_MsgTypeDef msg)
-{ 
-  /* Prevent unused argument(s) compilation warning */
-  UNUSED(hpcd);
-  UNUSED(msg);
+{
+	/* Prevent unused argument(s) compilation warning */
+	UNUSED(hpcd);
+	UNUSED(msg);
 
-  /* NOTE : This function should not be modified, when the callback is needed,
-            the HAL_PCDEx_LPM_Callback could be implemented in the user file
-   */ 
+	/* NOTE : This function should not be modified, when the callback is needed,
+	          the HAL_PCDEx_LPM_Callback could be implemented in the user file
+	 */
 }
 
 /**
@@ -288,13 +290,13 @@ __weak void HAL_PCDEx_LPM_Callback(PCD_HandleTypeDef *hpcd, PCD_LPM_MsgTypeDef m
   */
 __weak void HAL_PCDEx_BCD_Callback(PCD_HandleTypeDef *hpcd, PCD_BCD_MsgTypeDef msg)
 {
-  /* Prevent unused argument(s) compilation warning */
-  UNUSED(hpcd);
-  UNUSED(msg);
+	/* Prevent unused argument(s) compilation warning */
+	UNUSED(hpcd);
+	UNUSED(msg);
 
-  /* NOTE : This function should not be modified, when the callback is needed,
-            the HAL_PCDEx_BCD_Callback could be implemented in the user file
-   */ 
+	/* NOTE : This function should not be modified, when the callback is needed,
+	          the HAL_PCDEx_BCD_Callback could be implemented in the user file
+	 */
 }
 
 /**

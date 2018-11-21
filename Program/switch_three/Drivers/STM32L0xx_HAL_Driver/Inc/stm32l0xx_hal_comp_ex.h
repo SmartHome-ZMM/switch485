@@ -31,14 +31,14 @@
   * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   *
   ******************************************************************************
-  */ 
+  */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __STM32L0xx_HAL_COMP_EX_H
 #define __STM32L0xx_HAL_COMP_EX_H
 
 #ifdef __cplusplus
- extern "C" {
+extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
@@ -63,7 +63,7 @@
 /* COMP specific functions to manage VREFINT *************************************/
 void HAL_COMPEx_EnableVREFINT(void);
 void HAL_COMPEx_DisableVREFINT(void);
-   
+
 /**
   * @}
   */

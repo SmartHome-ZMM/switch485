@@ -34,6 +34,7 @@
 #include "stm32l0xx_hal.h"
 #include "stm32l0xx.h"
 #include "stm32l0xx_it.h"
+#include "includes.h"
 
 /* USER CODE BEGIN 0 */
 
@@ -46,7 +47,7 @@ extern UART_HandleTypeDef hlpuart1;
 extern UART_HandleTypeDef huart2;
 
 /******************************************************************************/
-/*            Cortex-M0+ Processor Interruption and Exception Handlers         */ 
+/*            Cortex-M0+ Processor Interruption and Exception Handlers         */
 /******************************************************************************/
 
 /**
@@ -54,12 +55,12 @@ extern UART_HandleTypeDef huart2;
 */
 void NMI_Handler(void)
 {
-  /* USER CODE BEGIN NonMaskableInt_IRQn 0 */
+	/* USER CODE BEGIN NonMaskableInt_IRQn 0 */
 
-  /* USER CODE END NonMaskableInt_IRQn 0 */
-  /* USER CODE BEGIN NonMaskableInt_IRQn 1 */
+	/* USER CODE END NonMaskableInt_IRQn 0 */
+	/* USER CODE BEGIN NonMaskableInt_IRQn 1 */
 
-  /* USER CODE END NonMaskableInt_IRQn 1 */
+	/* USER CODE END NonMaskableInt_IRQn 1 */
 }
 
 /**
@@ -67,17 +68,18 @@ void NMI_Handler(void)
 */
 void HardFault_Handler(void)
 {
-  /* USER CODE BEGIN HardFault_IRQn 0 */
+	/* USER CODE BEGIN HardFault_IRQn 0 */
 
-  /* USER CODE END HardFault_IRQn 0 */
-  while (1)
-  {
-    /* USER CODE BEGIN W1_HardFault_IRQn 0 */
-    /* USER CODE END W1_HardFault_IRQn 0 */
-  }
-  /* USER CODE BEGIN HardFault_IRQn 1 */
+	/* USER CODE END HardFault_IRQn 0 */
+	while (1)
+	{
+		/* USER CODE BEGIN W1_HardFault_IRQn 0 */
+		/* USER CODE END W1_HardFault_IRQn 0 */
+	}
 
-  /* USER CODE END HardFault_IRQn 1 */
+	/* USER CODE BEGIN HardFault_IRQn 1 */
+
+	/* USER CODE END HardFault_IRQn 1 */
 }
 
 /**
@@ -85,12 +87,12 @@ void HardFault_Handler(void)
 */
 void SVC_Handler(void)
 {
-  /* USER CODE BEGIN SVC_IRQn 0 */
+	/* USER CODE BEGIN SVC_IRQn 0 */
 
-  /* USER CODE END SVC_IRQn 0 */
-  /* USER CODE BEGIN SVC_IRQn 1 */
+	/* USER CODE END SVC_IRQn 0 */
+	/* USER CODE BEGIN SVC_IRQn 1 */
 
-  /* USER CODE END SVC_IRQn 1 */
+	/* USER CODE END SVC_IRQn 1 */
 }
 
 /**
@@ -98,12 +100,12 @@ void SVC_Handler(void)
 */
 void PendSV_Handler(void)
 {
-  /* USER CODE BEGIN PendSV_IRQn 0 */
+	/* USER CODE BEGIN PendSV_IRQn 0 */
 
-  /* USER CODE END PendSV_IRQn 0 */
-  /* USER CODE BEGIN PendSV_IRQn 1 */
+	/* USER CODE END PendSV_IRQn 0 */
+	/* USER CODE BEGIN PendSV_IRQn 1 */
 
-  /* USER CODE END PendSV_IRQn 1 */
+	/* USER CODE END PendSV_IRQn 1 */
 }
 
 /**
@@ -111,14 +113,14 @@ void PendSV_Handler(void)
 */
 void SysTick_Handler(void)
 {
-  /* USER CODE BEGIN SysTick_IRQn 0 */
+	/* USER CODE BEGIN SysTick_IRQn 0 */
 
-  /* USER CODE END SysTick_IRQn 0 */
-  HAL_IncTick();
-  HAL_SYSTICK_IRQHandler();
-  /* USER CODE BEGIN SysTick_IRQn 1 */
+	/* USER CODE END SysTick_IRQn 0 */
+	HAL_IncTick();
+	HAL_SYSTICK_IRQHandler();
+	/* USER CODE BEGIN SysTick_IRQn 1 */
 
-  /* USER CODE END SysTick_IRQn 1 */
+	/* USER CODE END SysTick_IRQn 1 */
 }
 
 /******************************************************************************/
@@ -133,13 +135,13 @@ void SysTick_Handler(void)
 */
 void EXTI0_1_IRQHandler(void)
 {
-  /* USER CODE BEGIN EXTI0_1_IRQn 0 */
+	/* USER CODE BEGIN EXTI0_1_IRQn 0 */
 
-  /* USER CODE END EXTI0_1_IRQn 0 */
-  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_1);
-  /* USER CODE BEGIN EXTI0_1_IRQn 1 */
+	/* USER CODE END EXTI0_1_IRQn 0 */
+	HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_1);
+	/* USER CODE BEGIN EXTI0_1_IRQn 1 */
 
-  /* USER CODE END EXTI0_1_IRQn 1 */
+	/* USER CODE END EXTI0_1_IRQn 1 */
 }
 
 /**
@@ -147,13 +149,13 @@ void EXTI0_1_IRQHandler(void)
 */
 void EXTI4_15_IRQHandler(void)
 {
-  /* USER CODE BEGIN EXTI4_15_IRQn 0 */
+	/* USER CODE BEGIN EXTI4_15_IRQn 0 */
 
-  /* USER CODE END EXTI4_15_IRQn 0 */
-  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_7);
-  /* USER CODE BEGIN EXTI4_15_IRQn 1 */
+	/* USER CODE END EXTI4_15_IRQn 0 */
+	HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_7);
+	/* USER CODE BEGIN EXTI4_15_IRQn 1 */
 
-  /* USER CODE END EXTI4_15_IRQn 1 */
+	/* USER CODE END EXTI4_15_IRQn 1 */
 }
 
 /**
@@ -161,13 +163,13 @@ void EXTI4_15_IRQHandler(void)
 */
 void DMA1_Channel2_3_IRQHandler(void)
 {
-  /* USER CODE BEGIN DMA1_Channel2_3_IRQn 0 */
+	/* USER CODE BEGIN DMA1_Channel2_3_IRQn 0 */
 
-  /* USER CODE END DMA1_Channel2_3_IRQn 0 */
-  HAL_DMA_IRQHandler(&hdma_lpuart1_rx);
-  /* USER CODE BEGIN DMA1_Channel2_3_IRQn 1 */
+	/* USER CODE END DMA1_Channel2_3_IRQn 0 */
+	HAL_DMA_IRQHandler(&hdma_lpuart1_rx);
+	/* USER CODE BEGIN DMA1_Channel2_3_IRQn 1 */
 
-  /* USER CODE END DMA1_Channel2_3_IRQn 1 */
+	/* USER CODE END DMA1_Channel2_3_IRQn 1 */
 }
 
 /**
@@ -175,13 +177,9 @@ void DMA1_Channel2_3_IRQHandler(void)
 */
 void DMA1_Channel4_5_6_7_IRQHandler(void)
 {
-  /* USER CODE BEGIN DMA1_Channel4_5_6_7_IRQn 0 */
+	HAL_DMA_IRQHandler(&hdma_usart2_rx);
 
-  /* USER CODE END DMA1_Channel4_5_6_7_IRQn 0 */
-  HAL_DMA_IRQHandler(&hdma_usart2_rx);
-  /* USER CODE BEGIN DMA1_Channel4_5_6_7_IRQn 1 */
 
-  /* USER CODE END DMA1_Channel4_5_6_7_IRQn 1 */
 }
 
 /**
@@ -189,13 +187,28 @@ void DMA1_Channel4_5_6_7_IRQHandler(void)
 */
 void USART2_IRQHandler(void)
 {
-  /* USER CODE BEGIN USART2_IRQn 0 */
 
-  /* USER CODE END USART2_IRQn 0 */
-  HAL_UART_IRQHandler(&huart2);
-  /* USER CODE BEGIN USART2_IRQn 1 */
+	uint32_t tmp_flag = 0;
+	uint32_t temp;
+	HAL_UART_IRQHandler(&huart2);
 
-  /* USER CODE END USART2_IRQn 1 */
+	tmp_flag =  __HAL_UART_GET_FLAG(&huart2, UART_FLAG_IDLE);
+
+	if((tmp_flag != RESET))
+	{
+
+		__HAL_UART_CLEAR_IDLEFLAG(&huart2);
+		temp = huart2.Instance->ISR;
+		temp = huart2.Instance->RDR;
+		HAL_UART_DMAStop(&huart2);
+		temp  = hdma_usart2_rx.Instance->CNDTR;
+
+		//uart recv done
+		rx_len =  BUFFER_SIZE - temp;
+		recv_end_flag = 1;
+	}
+
+
 }
 
 /**
@@ -203,13 +216,13 @@ void USART2_IRQHandler(void)
 */
 void AES_RNG_LPUART1_IRQHandler(void)
 {
-  /* USER CODE BEGIN AES_RNG_LPUART1_IRQn 0 */
+	/* USER CODE BEGIN AES_RNG_LPUART1_IRQn 0 */
 
-  /* USER CODE END AES_RNG_LPUART1_IRQn 0 */
-  HAL_UART_IRQHandler(&hlpuart1);
-  /* USER CODE BEGIN AES_RNG_LPUART1_IRQn 1 */
+	/* USER CODE END AES_RNG_LPUART1_IRQn 0 */
+	HAL_UART_IRQHandler(&hlpuart1);
+	/* USER CODE BEGIN AES_RNG_LPUART1_IRQn 1 */
 
-  /* USER CODE END AES_RNG_LPUART1_IRQn 1 */
+	/* USER CODE END AES_RNG_LPUART1_IRQn 1 */
 }
 
 /* USER CODE BEGIN 1 */

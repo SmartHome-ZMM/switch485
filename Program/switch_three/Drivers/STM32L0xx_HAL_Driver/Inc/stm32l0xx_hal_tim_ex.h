@@ -31,14 +31,14 @@
   * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   *
   ******************************************************************************
-  */ 
+  */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __STM32L0xx_HAL_TIM_EX_H
 #define __STM32L0xx_HAL_TIM_EX_H
 
 #ifdef __cplusplus
- extern "C" {
+extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
@@ -50,21 +50,22 @@
 
 /** @defgroup TIMEx TIMEx
   * @{
-  */ 
+  */
 
 /* Exported types ------------------------------------------------------------*/
- /** @defgroup TIM_Exported_Types TIM Exported Types
-  * @{
+/** @defgroup TIM_Exported_Types TIM Exported Types
+ * @{
+ */
+/**
+  * @brief  TIM Master configuration Structure definition
   */
-/** 
-  * @brief  TIM Master configuration Structure definition  
-  */ 
-typedef struct {
-  uint32_t  MasterOutputTrigger;   /*!< Trigger output (TRGO) selection 
+typedef struct
+{
+	uint32_t  MasterOutputTrigger;   /*!< Trigger output (TRGO) selection
                                       This parameter can be a value of @ref TIM_Master_Mode_Selection */
-  uint32_t  MasterSlaveMode;       /*!< Master/slave mode selection 
+	uint32_t  MasterSlaveMode;       /*!< Master/slave mode selection
                                       This parameter can be a value of @ref TIM_Master_Slave_Mode */
-}TIM_MasterConfigTypeDef;
+} TIM_MasterConfigTypeDef;
 
 /**
   * @}
@@ -77,7 +78,7 @@ typedef struct {
 
 /** @defgroup TIMEx_Trigger_Selection Trigger selection
   * @{
-  */  
+  */
 #define  TIM_TRGO_RESET            ((uint32_t)0x0000U)
 #define  TIM_TRGO_ENABLE           (TIM_CR2_MMS_0)
 #define  TIM_TRGO_UPDATE           (TIM_CR2_MMS_1)
@@ -95,10 +96,10 @@ typedef struct {
                                         ((__SOURCE__) == TIM_TRGO_OC2REF) || \
                                         ((__SOURCE__) == TIM_TRGO_OC3REF) || \
                                         ((__SOURCE__) == TIM_TRGO_OC4REF))
-   
+
 /**
   * @}
-  */ 
+  */
 
 /** @defgroup TIMEx_Remap Remaping
   * @{
@@ -176,7 +177,7 @@ typedef struct {
 #define TIM3_ETR_HSI                      TIM3_OR_ETR_RMP_1
 
 #endif /*defined (STM32L07Xxx) or defined (STM32L08Xxx) */
-      
+
 
 #if defined (STM32L071xx) || defined (STM32L072xx) || defined (STM32L073xx) \
     || defined (STM32L081xx) || defined (STM32L082xx) || defined (STM32L083xx)
@@ -201,7 +202,7 @@ typedef struct {
                                         ((__CHANNEL__) == TIM_CHANNEL_2))) ||   \
           (((__INSTANCE__) == TIM22) &&  (((__CHANNEL__) == TIM_CHANNEL_1)    ||   \
                                         ((__CHANNEL__) == TIM_CHANNEL_2))))
-									
+
 #elif defined (STM32L011xx) || defined (STM32L021xx)
 
 #define IS_TIM_REMAP(__INSTANCE__, __TIM_REMAP__)               \
@@ -215,7 +216,7 @@ typedef struct {
                                          ((__CHANNEL__) == TIM_CHANNEL_4))) || \
           (((__INSTANCE__) == TIM21)  &&  (((__CHANNEL__) == TIM_CHANNEL_1)   || \
                                          ((__CHANNEL__) == TIM_CHANNEL_2))))
-										 
+
 #else
 
 #define IS_TIM_REMAP(__INSTANCE__, __TIM_REMAP__)               \

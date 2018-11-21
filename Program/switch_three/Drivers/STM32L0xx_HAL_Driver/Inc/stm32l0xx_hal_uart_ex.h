@@ -38,7 +38,7 @@
 #define __STM32L0xx_HAL_UART_EX_H
 
 #ifdef __cplusplus
- extern "C" {
+extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
@@ -62,15 +62,15 @@
   */
 typedef struct
 {
-  uint32_t WakeUpEvent;        /*!< Specifies which event will activat the Wakeup from Stop mode flag (WUF).
+	uint32_t WakeUpEvent;        /*!< Specifies which event will activat the Wakeup from Stop mode flag (WUF).
                                     This parameter can be a value of @ref UART_WakeUp_from_Stop_Selection.
                                     If set to UART_WAKEUP_ON_ADDRESS, the two other fields below must
                                     be filled up. */
 
-  uint16_t AddressLength;      /*!< Specifies whether the address is 4 or 7-bit long.
+	uint16_t AddressLength;      /*!< Specifies whether the address is 4 or 7-bit long.
                                     This parameter can be a value of @ref UARTEx_WakeUp_Address_Length.  */
 
-  uint8_t Address;             /*!< UART/USART node address (7-bit long max). */
+	uint8_t Address;             /*!< UART/USART node address (7-bit long max). */
 } UART_WakeUpTypeDef;
 
 /**
@@ -91,7 +91,7 @@ typedef struct
 /**
   * @}
   */
-  
+
 /** @defgroup UARTEx_WakeUp_Address_Length UART Extended WakeUp Address Length
   * @{
   */
@@ -398,7 +398,7 @@ void HAL_UARTEx_WakeupCallback(UART_HandleTypeDef *huart);
 
 /**
   * @brief Ensure that UART frame length is valid.
-  * @param __LENGTH__: UART frame length. 
+  * @param __LENGTH__: UART frame length.
   * @retval SET (__LENGTH__ is valid) or RESET (__LENGTH__ is invalid)
   */
 #define IS_UART_WORD_LENGTH(__LENGTH__) (((__LENGTH__) == UART_WORDLENGTH_7B) || \
@@ -407,7 +407,7 @@ void HAL_UARTEx_WakeupCallback(UART_HandleTypeDef *huart);
 
 /**
   * @brief Ensure that UART wake-up address length is valid.
-  * @param __ADDRESS__: UART wake-up address length. 
+  * @param __ADDRESS__: UART wake-up address length.
   * @retval SET (__ADDRESS__ is valid) or RESET (__ADDRESS__ is invalid)
   */
 #define IS_UART_ADDRESSLENGTH_DETECT(__ADDRESS__) (((__ADDRESS__) == UART_ADDRESS_DETECT_4B) || \
