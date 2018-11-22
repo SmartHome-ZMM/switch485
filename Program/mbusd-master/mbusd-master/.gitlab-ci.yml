@@ -1,0 +1,74 @@
+---
+stages:
+ - test
+ - build
+
+.mbusd_job_template: &mbusd_job_template # Hidden key that defines an anchor
+  image: debian:stable
+  artifacts:
+    # create an archive with a name of the current stage and branch name
+    name: "${CI_BUILD_STAGE}_${CI_BUILD_REF_NAME}"
+    expire_in: 6 months
+    paths:
+      - output.dir/mbusd
+      - output.dir/mbusd.8
+      - conf/mbusd.conf.example
+      - output.dir/mbusd@.service
+      - output.dir/mbusd*.deb
+      - output.dir/mbusd*.rpm
+
+build:fedora_x86:
+  <<: *mbusd_job_template
+  image: fedora:latest
+  stage: build
+  before_script:
+    - yum -y install make cmake pkgconfig gcc-c++ rpmdevtools
+  script:
+    - mkdir output.dir/
+    - cd output.dir
+    - cmake -D CMAKE_BUILD_TYPE=Debug -DSYSTEMD_SERVICES_INSTALL_DIR=/usr/lib/systemd/system ../
+    - make package
+
+build:deb_armhf:
+ <<: *mbusd_job_template
+ stage: build
+ before_script:
+   - apt update -qq
+   - apt install -y -qq build-essential pkg-config cmake gcc-arm-linux-gnueabihf
+ script:
+   - mkdir output.dir/
+   - cd output.dir
+   - cmake -DCMAKE_BUILD_TYPE=Release -DSYSTEMD_SERVICES_INSTALL_DIR=/lib/systemd/system -DCMAKE_TOOLCHAIN_FILE=../cmake/arm_linux_gnueabihf.cmake ../
+   - make package
+
+build:deb_x86:
+ <<: *mbusd_job_template
+ stage: build
+ before_script:
+   - apt update -qq
+   - apt install -y -qq --no-install-recommends build-essential pkg-config cmake
+ script:
+   - mkdir output.dir/
+   - cd output.dir
+   - cmake -DCMAKE_BUILD_TYPE=Release -DSYSTEMD_SERVICES_INSTALL_DIR=/lib/systemd/system ../
+   - make package
+
+
+test_x86:
+  stage: test
+  image: debian:stable
+  #https://forum.gitlab.com/t/testing-copy-yaml-file-to-build-folder/8309
+  before_script:
+    - apt update -qq
+    - apt install -y -qq --no-install-recommends build-essential pkg-config cmake
+    - apt install -y -qq --no-install-recommends python-dev python-pip python-setuptools socat
+    - python -m pip install pymodbus service_identity twisted
+
+  script:
+    - mkdir -p output.dir/ && cd $_
+    - cmake ../
+    - make
+
+    # execute all tests
+    - (cd ../ && python tests/run_itests.py output.dir/mbusd)
+    #- make VERBOSE=1 CTEST_OUTPUT_ON_FAILURE=1 test

@@ -1,0 +1,94 @@
+.TH "mbusd" 8 "11 Dec 2017" "mbusd @PROJECT_VERSION@"
+.SH NAME
+mbusd \- MODBUS/TCP to MODBUS/RTU gateway.
+.SH SYNOPSIS
+.B mbusd
+.RB [ -h ]
+.RB [ -d ]
+.RB [ -L
+.IR logfile ]
+.RB [ -v
+.IR level ]
+.RB [ -c
+.IR cfgfile ]
+.RB [ -p
+.IR device ]
+.RB [ -s
+.IR speed ]
+.RB [ -m
+.IR mode ]
+.RB [ -t ]
+.RB [ -y
+.IR file ]
+.RB [ -Y
+.IR file ]
+.RB [ -P
+.IR port ]
+.RB [ -C
+.IR maxconn ]
+.RB [ -N
+.IR retries ]
+.RB [ -R
+.IR pause ]
+.RB [ -W
+.IR wait ]
+.RB [ -T
+.IR timeout ]
+.SH DESCRIPTION
+\fImbusd\fR is MODBUS/TCP to MODBUS/RTU gateway.
+.SH OPTIONS
+.IP \fB-h\fR
+Usage help.
+.IP \fB-d\fR
+Instruct \fImbusd\fR not to fork itself (non-daemonize).
+.IP "\fB-L \fIlogfile\fR"
+Specifies log file name ('-' for logging to STDOUT only, default is /var/log/mbusd.log).
+.IP "\fB-v \fIlevel\fR"
+Specifies log verbosity level. 0 enables logging of errors only,
+1 also enables warnings and 2 enables information messages.
+If \fImbusd\fR was compiled in debug mode, valid log levels are up to 9,
+where log levels above 2 forces logging of information about additional
+internal events.
+.IP "\fB-c \fIcfgfile\fR"
+Read configuration from cfgfile.
+.IP "\fB-p \fIdevice\fR"
+Specifies serial port device name.
+.IP "\fB-s \fIspeed\fR"
+Specifies serial port speed.
+.IP "\fB-m \fImode\fR"
+Specifies serial port mode (like 8N1).
+.IP "\fB-P \fIport\fR"
+Specifies TCP port number.
+.IP \fB-t\fR
+Enable RTS RS-485 data direction control (if not disabled while compile).
+.IP "\fB-y \fIfile\fR"
+Enable RS-485 direction data direction control by writing '1' to file
+for transmitter enable and '0' to file for transmitter disable
+.IP "\fB-Y \fIfile\fR"
+Enable RS-485 direction data direction control by writing '0' to file
+for transmitter enable and '1' to file for transmitter disable
+.IP "\fB-C \fImaxconn\fR"
+Specifies maximum number of simultaneous TCP connections.
+.IP "\fB-N \fIretries\fR"
+Specifies maximum number of request retries (0 - disable retries).
+.IP "\fB-R \fIpause\fR"
+Specifies pause between requests in milliseconds.
+.IP "\fB-W \fIwait\fR"
+Specifies response wait time in milliseconds.
+.IP "\fB-T \fItimeout\fR"
+Specifies connection timeout value in seconds (0 - disable timeout).
+.SH NOTES
+In case of situation when \fImbusd\fR received response with invalid CRC and can't correct
+error by re-request, it return MODBUS/TCP packet with exception code 04. In case of situation
+when \fImbusd\fR can't receive response from MODBUS RTU device (e.g. addressed controller
+is not present on the network), it return MODBUS/TCP packet with exception code 0x0B.
+.SH BUGS
+Broadcast messaging on MODBUS network isn't supported.
+
+Please send bug reports to author.
+.SH AUTHORS
+Victor Antonovich <v.antonovich@gmail.com>
+
+Andrew Denysenko <nitr0@seti.kr.ua>
+.SH LICENSE
+This program is distributed under BSD license. See LICENSE file in the installation directory for the full license text.

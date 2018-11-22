@@ -1,0 +1,5 @@
+Removed Pin From Net: NetName=GND Pin=R40-1
+Removed Pin From Net: NetName=NetQ4_2 Pin=R40-2
+Change component parameters. Clean all parameters for all variants
+Added Pin To Net: NetName=NetQ4_2 Pin=R40-1
+Added Pin To Net: NetName=GND Pin=R40-2

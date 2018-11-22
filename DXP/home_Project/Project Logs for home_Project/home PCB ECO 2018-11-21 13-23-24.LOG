@@ -1,0 +1,14 @@
+Removed Pin From Net: NetName=AVCC_GND Pin=C15-1
+Removed Pin From Net: NetName=AVCC_GND Pin=L2-2
+Removed Pin From Net: NetName=AVCC_GND Pin=P5-2
+Removed Pin From Net: NetName=IN02 Pin=U4-12
+Removed Pin From Net: NetName=IN01 Pin=U4-13
+Removed Pin From Net: NetName=AVCC_GND Pin=U4-15
+Added Pin To Net: NetName=IN01 Pin=U4-12
+Added Pin To Net: NetName=IN02 Pin=U4-13
+Change Net Name : Old Net Name=AVCC_GND New Net Name=GND
+Added Pin To Net: NetName=AVCC_GND Pin=C15-1
+Added Pin To Net: NetName=AVCC_GND Pin=L2-2
+Added Pin To Net: NetName=AVCC_GND Pin=P5-2
+Added Pin To Net: NetName=AVCC_GND Pin=U4-15
+Added Net: Name=AVCC_GND
