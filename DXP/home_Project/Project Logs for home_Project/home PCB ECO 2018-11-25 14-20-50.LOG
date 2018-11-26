@@ -1,0 +1,8 @@
+Removed Pin From Net: NetName=LPUART1_TX Pin=M1-15
+Removed Pin From Net: NetName=LPUART1_RX Pin=M1-16
+Removed Pin From Net: NetName=USART2_RX Pin=U4-1
+Removed Pin From Net: NetName=USART2_TX Pin=U4-4
+Added Pin To Net: NetName=USART2_TX Pin=M1-15
+Added Pin To Net: NetName=USART2_RX Pin=M1-16
+Added Pin To Net: NetName=LPUART1_RX Pin=U4-1
+Added Pin To Net: NetName=LPUART1_TX Pin=U4-4

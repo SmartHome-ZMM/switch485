@@ -1,12 +1,12 @@
 Protel Design System Design Rule Check
 PCB File : E:\githubLib\switch485\switch485\DXP\home_Project\home.PcbDoc
-Date     : 2018/11/21
-Time     : 22:15:02
-
-Processing Rule : Clearance Constraint (Gap=10mil) (InNet('AVCC_GND')),(All)
-Rule Violations :0
+Date     : 2018/11/25
+Time     : 14:49:13
 
 Processing Rule : Clearance Constraint (Gap=1mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNet('AVCC_GND')),(All)
 Rule Violations :0
 
 Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)

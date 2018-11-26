@@ -1,0 +1,27 @@
+--cpu Cortex-M0+
+"switch_three\startup_stm32l011xx.o"
+"switch_three\main.o"
+"switch_three\stm32l0xx_it.o"
+"switch_three\stm32l0xx_hal_msp.o"
+"switch_three\stm32l0xx_hal_uart.o"
+"switch_three\stm32l0xx_hal_uart_ex.o"
+"switch_three\stm32l0xx_hal_tim.o"
+"switch_three\stm32l0xx_hal_tim_ex.o"
+"switch_three\stm32l0xx_hal.o"
+"switch_three\stm32l0xx_hal_i2c.o"
+"switch_three\stm32l0xx_hal_i2c_ex.o"
+"switch_three\stm32l0xx_hal_rcc.o"
+"switch_three\stm32l0xx_hal_rcc_ex.o"
+"switch_three\stm32l0xx_hal_flash_ramfunc.o"
+"switch_three\stm32l0xx_hal_flash.o"
+"switch_three\stm32l0xx_hal_flash_ex.o"
+"switch_three\stm32l0xx_hal_gpio.o"
+"switch_three\stm32l0xx_hal_dma.o"
+"switch_three\stm32l0xx_hal_pwr.o"
+"switch_three\stm32l0xx_hal_pwr_ex.o"
+"switch_three\stm32l0xx_hal_cortex.o"
+"switch_three\system_stm32l0xx.o"
+--library_type=microlib --strict --scatter "switch_three\switch_three.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "switch_three.map" -o switch_three\switch_three.axf
