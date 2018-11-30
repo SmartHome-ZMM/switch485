@@ -47,11 +47,18 @@ int main(void)
 
 	while (1)
 	{
-
-		HAL_UART_Transmit_DMA(&huart2, "test", 5); //
-		rx_len = 0;
-		recv_end_flag = 0;
-		HAL_UART_Receive_DMA(&huart2, rx_buffer, BUFFER_SIZE);
+//wifi串口数据解析
+//继电器控制
+//485数据解析
+	//	HAL_UART_Transmit_DMA(&huart2, "test", 5); //
+	//	rx_len = 0;
+	//	recv_end_flag = 0;
+	//	HAL_UART_Receive_DMA(&huart2, rx_buffer, BUFFER_SIZE);
+		 HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_4);
+		//继电器控制
+		HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_3);
+    /* Insert delay 100 ms */
+    HAL_Delay(3000);
 
 	}
 
@@ -204,7 +211,7 @@ void MX_GPIO_Init(void)
 	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_2 | GPIO_PIN_3 | GPIO_PIN_5 | GPIO_PIN_6, GPIO_PIN_RESET);
 
 	/*Configure GPIO pins : PA2 PA3 PA5 PA6 */
-	GPIO_InitStruct.Pin = GPIO_PIN_2 | GPIO_PIN_3 | GPIO_PIN_5 | GPIO_PIN_6;
+	GPIO_InitStruct.Pin = GPIO_PIN_2 | GPIO_PIN_3 | GPIO_PIN_5 | GPIO_PIN_6 | GPIO_PIN_4;
 	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
 	GPIO_InitStruct.Pull = GPIO_NOPULL;
 	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
