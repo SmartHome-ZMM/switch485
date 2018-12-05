@@ -1,0 +1,68 @@
+Removed Pin From Net: NetName=AVCC_GND Pin=C14-2
+Removed Pin From Net: NetName=AVCC_GND Pin=C15-2
+Removed Pin From Net: NetName=USART2_TX Pin=M1-15
+Removed Pin From Net: NetName=USART2_RX Pin=M1-16
+Removed Pin From Net: NetName=IN03 Pin=R6-2
+Removed Pin From Net: NetName=IN04 Pin=R8-2
+Removed Pin From Net: NetName=DO3 Pin=R10-2
+Change Component Designator: OldDesignator=R2 NewDesignator=R3
+Change Component Designator: OldDesignator=R3 NewDesignator=R4
+Change Component Designator: OldDesignator=R4 NewDesignator=R6
+Change Component Designator: OldDesignator=R5 NewDesignator=R7
+Change Component Designator: OldDesignator=R6 NewDesignator=R8
+Change Component Designator: OldDesignator=R7 NewDesignator=R9
+Change Component Designator: OldDesignator=R8 NewDesignator=R10
+Change Component Designator: OldDesignator=R9 NewDesignator=R11
+Change Component Designator: OldDesignator=R10 NewDesignator=R12
+Change Component Designator: OldDesignator=R11 NewDesignator=R13
+Change Component Designator: OldDesignator=R12 NewDesignator=R14
+Change Component Designator: OldDesignator=R13 NewDesignator=R15
+Change Component Designator: OldDesignator=R14 NewDesignator=R16
+Change Component Designator: OldDesignator=R15 NewDesignator=R17
+Change Component Designator: OldDesignator=R16 NewDesignator=R18
+Change Component Designator: OldDesignator=R18 NewDesignator=R19
+Change Component Designator: OldDesignator=R19 NewDesignator=R20
+Change Component Designator: OldDesignator=R20 NewDesignator=R21
+Change Component Designator: OldDesignator=R21 NewDesignator=R22
+Change Component Designator: OldDesignator=R22 NewDesignator=R23
+Change Component Designator: OldDesignator=R23 NewDesignator=R24
+Change Component Designator: OldDesignator=R24 NewDesignator=R25
+Change Component Designator: OldDesignator=R25 NewDesignator=R26
+Added Component: Designator=J3(HDR1X2)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R2(0603p)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "Axial Device, Thru-Hole; 2 Leads; 0.3 in Pin Spacing"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.3"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "0"; VariantName = "[No Variations]"
+Added Component: Designator=R5(0603p)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "Axial Device, Thru-Hole; 2 Leads; 0.3 in Pin Spacing"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.3"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "0"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=USART2_RX Pin=R2-2
+Added Pin To Net: NetName=USART2_TX Pin=R5-2
+Added Pin To Net: NetName=IN03 Pin=U3-2
+Added Pin To Net: NetName=IN04 Pin=U3-3
+Added Pin To Net: NetName=DO3 Pin=U3-11
+Change Net Name : Old Net Name=NetR12_1 New Net Name=NetR14_1
+Change Net Name : Old Net Name=NetR13_1 New Net Name=NetR15_1
+Change Net Name : Old Net Name=NetR14_2 New Net Name=NetR16_2
+Change Net Name : Old Net Name=NetR15_1 New Net Name=NetR17_1
+Change Net Name : Old Net Name=NetR18_2 New Net Name=NetR19_2
+Added Pin To Net: NetName=LOAD_RX Pin=J3-2
+Added Pin To Net: NetName=LOAD_RX Pin=M1-16
+Added Pin To Net: NetName=LOAD_RX Pin=R2-1
+Added Net: Name=LOAD_RX
+Added Pin To Net: NetName=LOAD_TX Pin=J3-1
+Added Pin To Net: NetName=LOAD_TX Pin=M1-15
+Added Pin To Net: NetName=LOAD_TX Pin=R5-1
+Added Net: Name=LOAD_TX
