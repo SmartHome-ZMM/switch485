@@ -42,7 +42,9 @@
 
 /* External variables --------------------------------------------------------*/
 extern DMA_HandleTypeDef hdma_lpuart1_rx;
+extern DMA_HandleTypeDef hdma_lpuart1_tx;
 extern DMA_HandleTypeDef hdma_usart2_rx;
+extern DMA_HandleTypeDef hdma_usart2_tx;
 extern UART_HandleTypeDef hlpuart1;
 extern UART_HandleTypeDef huart2;
 
@@ -167,6 +169,7 @@ void DMA1_Channel2_3_IRQHandler(void)
 
 	/* USER CODE END DMA1_Channel2_3_IRQn 0 */
 	HAL_DMA_IRQHandler(&hdma_lpuart1_rx);
+	HAL_DMA_IRQHandler(&hdma_lpuart1_tx);
 	/* USER CODE BEGIN DMA1_Channel2_3_IRQn 1 */
 
 	/* USER CODE END DMA1_Channel2_3_IRQn 1 */

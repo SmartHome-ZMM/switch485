@@ -6,7 +6,10 @@
 UART_HandleTypeDef hlpuart1;
 UART_HandleTypeDef huart2;
 DMA_HandleTypeDef hdma_lpuart1_rx;
+DMA_HandleTypeDef hdma_lpuart1_tx;
 DMA_HandleTypeDef hdma_usart2_rx;
+DMA_HandleTypeDef hdma_usart2_tx;
+
 
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
@@ -14,15 +17,28 @@ DMA_HandleTypeDef hdma_usart2_rx;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
-
+/* Size of Trasmission buffer */
+#define TXBUFFERSIZE                      (COUNTOF(aTxBuffer) - 1)
+/* Size of Reception buffer */
+#define RXBUFFERSIZE                      TXBUFFERSIZE
+#define COUNTOF(__BUFFER__)   (sizeof(__BUFFER__) / sizeof(*(__BUFFER__)))
 
 /* uart2 receive  parameter*/
 uint8_t rx_buffer[100] = {0};
 uint8_t tx_buffer[100] = {0};
 uint16_t rx_len = 0;
+/* UART handler declaration */
+__IO ITStatus UartReady = RESET;
+
+
+uint8_t aTxBuffer[] = " ****UART_TwoBoards_ComIT****  ****UART_TwoBoards_ComIT****  ****UART_TwoBoards_ComIT**** ";
+
+/* Buffer used for reception */
+uint8_t aRxBuffer[RXBUFFERSIZE];
 
 /* is done recevice */
 uint8_t recv_end_flag = 0;
+
 /**
   * @brief  The application entry point.
   *
@@ -41,9 +57,11 @@ int main(void)
 
 	/* Initialize all configured peripherals */
 	MX_GPIO_Init();
-	MX_DMA_Init();
+	//MX_DMA_Init();
 	MX_LPUART1_UART_Init();
 	MX_USART2_UART_Init();
+	
+	
 
 	while (1)
 	{
@@ -54,6 +72,7 @@ int main(void)
 	//	rx_len = 0;
 	//	recv_end_flag = 0;
 	//	HAL_UART_Receive_DMA(&huart2, rx_buffer, BUFFER_SIZE);
+		//灯
 		 HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_4);
 		//继电器控制
 		HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_3);
@@ -71,9 +90,8 @@ int main(void)
 void SystemClock_Config(void)
 {
 
-	RCC_OscInitTypeDef RCC_OscInitStruct;
-	RCC_ClkInitTypeDef RCC_ClkInitStruct;
-	RCC_PeriphCLKInitTypeDef PeriphClkInit;
+	RCC_OscInitTypeDef RCC_OscInitStruct={0};
+	RCC_ClkInitTypeDef RCC_ClkInitStruct={0};
 
 	/**Configure the main internal regulator output voltage
 	*/
@@ -106,14 +124,6 @@ void SystemClock_Config(void)
 		_Error_Handler(__FILE__, __LINE__);
 	}
 
-	PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_USART2 | RCC_PERIPHCLK_LPUART1;
-	PeriphClkInit.Usart2ClockSelection = RCC_USART2CLKSOURCE_PCLK1;
-	PeriphClkInit.Lpuart1ClockSelection = RCC_LPUART1CLKSOURCE_PCLK1;
-
-	if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
-	{
-		_Error_Handler(__FILE__, __LINE__);
-	}
 
 	/**Configure the Systick interrupt time
 	*/
@@ -125,6 +135,7 @@ void SystemClock_Config(void)
 
 	/* SysTick_IRQn interrupt configuration */
 	HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0);
+
 }
 
 /* LPUART1 init function */
@@ -133,19 +144,83 @@ void MX_LPUART1_UART_Init(void)
 
 	hlpuart1.Instance = LPUART1;
 	hlpuart1.Init.BaudRate = 115200;
-	hlpuart1.Init.WordLength = UART_WORDLENGTH_7B;
+	hlpuart1.Init.WordLength = UART_WORDLENGTH_8B;
 	hlpuart1.Init.StopBits = UART_STOPBITS_1;
 	hlpuart1.Init.Parity = UART_PARITY_NONE;
 	hlpuart1.Init.Mode = UART_MODE_TX_RX;
 	hlpuart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
-	hlpuart1.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
-	hlpuart1.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_MSBFIRST_INIT;
-	hlpuart1.AdvancedInit.MSBFirst = UART_ADVFEATURE_MSBFIRST_ENABLE;
-
+	//hlpuart1.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+	//hlpuart1.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_MSBFIRST_INIT;
+	//hlpuart1.AdvancedInit.MSBFirst = UART_ADVFEATURE_MSBFIRST_ENABLE;
+  if(HAL_UART_DeInit(&hlpuart1) != HAL_OK)
+  {
+    Error_Handler();
+  }  
 	if (HAL_UART_Init(&hlpuart1) != HAL_OK)
 	{
 		_Error_Handler(__FILE__, __LINE__);
 	}
+	
+	//DMA处理收发开始---
+	
+  /*##-2- Program the Reception process #####################################*/  
+  if(HAL_UART_Receive_DMA(&hlpuart1, (uint8_t *)aRxBuffer, RXBUFFERSIZE) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /*##-3- Start the transmission process #####################################*/  
+  /* While the UART in reception process, user can transmit data through 
+     "aTxBuffer" buffer */
+  if(HAL_UART_Transmit_DMA(&hlpuart1, (uint8_t*)aTxBuffer, TXBUFFERSIZE)!= HAL_OK)
+  {
+    Error_Handler();
+  }
+  
+  /*##-4- Wait for the end of the transfer ###################################*/  
+  while (UartReady != SET)
+  {
+  }
+
+  /* Reset transmission flag */
+  UartReady = RESET;
+	
+	
+	//DMA处理收发结束---
+	
+	
+	//以下是中断实现串口收发
+	/*
+	//串口中断实现接收和发送***开始***
+	if(HAL_UART_Transmit_IT(&hlpuart1, (uint8_t*)aTxBuffer, TXBUFFERSIZE)!= HAL_OK)
+  {
+    Error_Handler();
+  }
+  
+  // 等待发送完成###################################
+  while (UartReady != SET)
+  {
+		 HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_4);
+		 HAL_Delay(3000);
+  }
+	   //复位处理标识
+  UartReady = RESET;
+	  //设置接收中断 ###########################  
+  if(HAL_UART_Receive_IT(&hlpuart1, (uint8_t *)aRxBuffer, RXBUFFERSIZE) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  
+  //等待接收
+  
+  while (UartReady != SET)
+  {
+		HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_4);
+      HAL_Delay(3000);
+  } 
+	
+	//串口中断实现接收和发送---结束---
+  */
 
 }
 
@@ -239,6 +314,23 @@ void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+	/* Set transmission flag: transfer complete */
+  UartReady = SET;
+  
+
+	/* NOTE : This function should not be modified, when the callback is needed,
+	          the HAL_UART_RxCpltCallback can be implemented in the user file.
+	 */
+}
+void HAL_UART_TxCpltCallback(UART_HandleTypeDef *UartHandle)
+{
+  /* Set transmission flag: transfer complete */
+  UartReady = SET;
+
+  
+}
 
 /* USER CODE END 4 */
 
